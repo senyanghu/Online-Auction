@@ -1,0 +1,26 @@
+<!--
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <input class="form-control" placeholder="Please Enter Product Name" [formControl]="titleFilter">
+    </div>
+  </div>
+</div>
+-->
+
+<!--<div *ngFor="let product of products | filter:'title':keyword" class="col-sm-4 col-md-4 col-lg-4">-->
+<div *ngFor="let product of products | async" class="col-sm-4 col-md-4 col-lg-4">
+  <div class="thumbnail">
+    <img [src]="imgUrl">
+
+    <div class="caption">
+      <h4 class="pull-right">{{product.price}} dollars</h4>
+      <h4><a [routerLink] = "['/product', product.id]">{{product.title}}</a></h4>
+      <p>{{product.desc}}</p>
+    </div>
+
+    <div>
+      <app-stars [rating]="product.rating"></app-stars>
+    </div>
+  </div>
+</div>
